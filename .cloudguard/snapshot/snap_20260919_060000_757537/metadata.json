@@ -1,0 +1,8 @@
+{
+  "snapshot_id": "snap_20260919_060000_757537",
+  "created_at": "2026-09-19T06:00:00.821986Z",
+  "original_path": "/Users/soumyasagar/AWS hackathon/examples/insecure_template.yaml",
+  "backup_path": "/Users/soumyasagar/AWS hackathon/.cloudguard/snapshot/snap_20260919_060000_757537/insecure_template.yaml",
+  "sha256": "a429bb574e4dcb0cef0fb465363feed4446ae855145c3e13f1de54d123737f47",
+  "file_size_bytes": 1338
+}

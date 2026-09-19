@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cloudsentinel"
+version = "0.1.0"
+description = "Local-First CLI Utility and CI/CD Security Gatekeeper for AI-Generated Infrastructure-as-Code"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    { name = "CloudSentinel Team" }
+]
+dependencies = [
+    "cedarpy>=4.12.0",
+    "moto>=5.0.0",
+    "boto3>=1.30.0",
+    "rich>=13.0.0",
+    "pydantic>=2.5.0",
+    "pyyaml>=6.0",
+    "requests>=2.31.0",
+    "fastapi>=0.100.0",
+    "uvicorn>=0.23.0",
+    "python-multipart>=0.0.6"
+]
+
+[project.scripts]
+cloudsentinel = "cloudsentinel.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["cloudsentinel*", "backend*"]

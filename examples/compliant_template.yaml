@@ -1,0 +1,54 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: "Compliant Zero-Trust serverless backend"
+
+Resources:
+  SecureDataBucket:
+    Type: "AWS::S3::Bucket"
+    Properties:
+      BucketName: "cloudsentinel-verified-data-bucket"
+      AccessControl: "Private"
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: "AES256"
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+
+  ScopedLambdaRole:
+    Type: "AWS::IAM::Role"
+    Properties:
+      RoleName: "CloudSentinelScopedExecutionRole"
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              Service: "lambda.amazonaws.com"
+            Action: "sts:AssumeRole"
+      ManagedPolicyArns:
+        - "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+
+  PrivateSecurityGroup:
+    Type: "AWS::EC2::SecurityGroup"
+    Properties:
+      GroupDescription: "Private restricted security group"
+      SecurityGroupIngress:
+        - IpProtocol: "tcp"
+          FromPort: 443
+          ToPort: 443
+          CidrIp: "10.0.0.0/16"
+
+  SecureOrderProcessingFunction:
+    Type: "AWS::Serverless::Function"
+    Properties:
+      FunctionName: "SecureOrderProcessor"
+      Handler: "index.handler"
+      Runtime: "python3.11"
+      InlineCode: |
+        def handler(event, context):
+            return {"statusCode": 200, "body": "Order processed securely"}
+      Role: !GetAtt ScopedLambdaRole.Arn

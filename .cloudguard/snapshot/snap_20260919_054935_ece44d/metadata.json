@@ -1,0 +1,8 @@
+{
+  "snapshot_id": "snap_20260919_054935_ece44d",
+  "created_at": "2026-09-19T05:49:35.544662Z",
+  "original_path": "/Users/soumyasagar/AWS hackathon/test_gatekeep_target.yaml",
+  "backup_path": "/Users/soumyasagar/AWS hackathon/.cloudguard/snapshot/snap_20260919_054935_ece44d/test_gatekeep_target.yaml",
+  "sha256": "a429bb574e4dcb0cef0fb465363feed4446ae855145c3e13f1de54d123737f47",
+  "file_size_bytes": 1338
+}

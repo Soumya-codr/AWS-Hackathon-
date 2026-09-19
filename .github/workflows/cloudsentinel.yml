@@ -1,0 +1,56 @@
+name: CloudSentinel Zero-Trust Gatekeeper
+
+'on':
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  security-gate:
+    name: Zero-Trust Security Gate & Verification
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
+
+    steps:
+      - name: Checkout Codebase
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: "pip"
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip setuptools wheel
+          python -m pip install pytest pytest-cov
+          python -m pip install -e .
+
+      - name: Run Test Suite (Formal Verification & Local Sandboxing)
+        run: |
+          python -m pytest tests/ -v --durations=10
+
+      - name: Execute CloudSentinel Fail-Closed Gatekeeper Scan
+        run: |
+          echo "::group::CloudSentinel Zero-Trust Static Scan"
+          cloudsentinel scan ./examples
+          echo "::endgroup::"

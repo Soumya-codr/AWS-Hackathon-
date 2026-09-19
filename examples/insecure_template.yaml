@@ -1,0 +1,45 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: "Sample AI-generated insecure serverless backend"
+
+Resources:
+  DataStorageBucket:
+    Type: "AWS::S3::Bucket"
+    Properties:
+      BucketName: "ai-generated-shared-data-bucket"
+      AccessControl: "PublicRead"
+
+  LambdaExecutionRole:
+    Type: "AWS::IAM::Role"
+    Properties:
+      RoleName: "InsecureServerlessAdminRole"
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              Service: "lambda.amazonaws.com"
+            Action: "sts:AssumeRole"
+      ManagedPolicyArns:
+        - "arn:aws:iam::aws:policy/AdministratorAccess"
+
+  PublicIngressSecurityGroup:
+    Type: "AWS::EC2::SecurityGroup"
+    Properties:
+      GroupDescription: "Insecure open inbound security group"
+      SecurityGroupIngress:
+        - IpProtocol: "tcp"
+          FromPort: 22
+          ToPort: 22
+          CidrIp: "0.0.0.0/0"
+
+  OrderProcessingFunction:
+    Type: "AWS::Serverless::Function"
+    Properties:
+      FunctionName: "ProcessOrdersWorker"
+      Handler: "index.handler"
+      Runtime: "python3.11"
+      InlineCode: |
+        def handler(event, context):
+            return {"statusCode": 200, "body": "Order processed"}
+      Role: !GetAtt LambdaExecutionRole.Arn

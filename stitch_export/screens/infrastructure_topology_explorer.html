@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "outline-variant": "#3c4a42",
+        "on-background": "#e5e1e4",
+        "error": "#ffb4ab",
+        "outline": "#86948a",
+        "background": "#131315",
+        "surface-container-lowest": "#0e0e10",
+        "surface-container": "#201f22",
+        "on-surface": "#e5e1e4",
+        "on-error": "#690005",
+        "tertiary-container": "#e29100",
+        "surface-variant": "#353437",
+        "on-secondary-fixed": "#001d31",
+        "on-secondary-container": "#002c47",
+        "on-primary-container": "#00422b",
+        "on-primary-fixed": "#002113",
+        "on-error-container": "#ffdad6",
+        "primary": "#4edea3",
+        "secondary-container": "#3198dc",
+        "inverse-surface": "#e5e1e4",
+        "surface-container-high": "#2a2a2c",
+        "tertiary-fixed": "#ffddb8",
+        "surface-bright": "#39393b",
+        "on-tertiary": "#472a00",
+        "secondary-fixed-dim": "#93ccff",
+        "on-tertiary-fixed": "#2a1700",
+        "surface-dim": "#131315",
+        "on-tertiary-container": "#523200",
+        "surface-tint": "#4edea3",
+        "on-primary": "#003824",
+        "on-surface-variant": "#bbcabf",
+        "inverse-primary": "#006c49",
+        "tertiary": "#ffb95f",
+        "on-tertiary-fixed-variant": "#653e00",
+        "primary-fixed-dim": "#4edea3",
+        "error-container": "#93000a",
+        "surface": "#131315",
+        "secondary-fixed": "#cce5ff",
+        "surface-container-highest": "#353437",
+        "tertiary-fixed-dim": "#ffb95f",
+        "primary-container": "#10b981",
+        "on-primary-fixed-variant": "#005236",
+        "primary-fixed": "#6ffbbe",
+        "inverse-on-surface": "#313032",
+        "on-secondary-fixed-variant": "#004b73",
+        "on-secondary": "#003351",
+        "surface-container-low": "#1c1b1d",
+        "secondary": "#93ccff"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.125rem",
+        "lg": "0.25rem",
+        "xl": "0.5rem",
+        "full": "0.75rem"
+      },
+      "spacing": {
+        "space-md": "0.5rem",
+        "space-xs": "0.125rem",
+        "gutter": "0.75rem",
+        "space-lg": "0.75rem",
+        "space-xl": "1rem",
+        "margin-desktop": "1rem",
+        "gutter-desktop": "1rem",
+        "margin": "0.75rem",
+        "space-sm": "0.25rem"
+      },
+      "fontFamily": {
+        "headline-lg-mobile": ["Geist"],
+        "headline-sm": ["Geist"],
+        "display": ["Geist"],
+        "label-sm": ["JetBrains Mono"],
+        "body-sm": ["Inter"],
+        "body-lg": ["Inter"],
+        "headline-md": ["Geist"],
+        "code-diff": ["JetBrains Mono"],
+        "headline-lg": ["Geist"],
+        "body-md": ["Inter"],
+        "label-md": ["JetBrains Mono"],
+        "hash-meta": ["JetBrains Mono"]
+      },
+      "fontSize": {
+        "headline-lg-mobile": ["1.375rem", {"lineHeight": "1.75rem", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+        "headline-sm": ["1rem", {"lineHeight": "1.25rem", "letterSpacing": "-0.015em", "fontWeight": "500"}],
+        "display": ["2.25rem", {"lineHeight": "2.5rem", "letterSpacing": "-0.03em", "fontWeight": "600"}],
+        "label-sm": ["0.6875rem", {"lineHeight": "0.875rem", "letterSpacing": "0.02em", "fontWeight": "500"}],
+        "body-sm": ["0.75rem", {"lineHeight": "1rem", "letterSpacing": "0", "fontWeight": "400"}],
+        "body-lg": ["0.9375rem", {"lineHeight": "1.375rem", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+        "headline-md": ["1.25rem", {"lineHeight": "1.5rem", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+        "code-diff": ["0.75rem", {"lineHeight": "1.125rem", "letterSpacing": "0", "fontWeight": "400"}],
+        "headline-lg": ["1.75rem", {"lineHeight": "2rem", "letterSpacing": "-0.025em", "fontWeight": "600"}],
+        "body-md": ["0.8125rem", {"lineHeight": "1.125rem", "letterSpacing": "-0.005em", "fontWeight": "400"}],
+        "label-md": ["0.8125rem", {"lineHeight": "1.125rem", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+        "hash-meta": ["0.6875rem", {"lineHeight": "0.875rem", "letterSpacing": "0.04em", "fontWeight": "400"}]
+      }
+    }
+  }
+}</script></head><body class="bg-background font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface-container-lowest border-b border-outline-variant"><div class="h-14 w-full px-gutter-desktop flex items-center justify-between border-b border-outline-variant bg-surface-dim"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-md"><div class="w-6 h-6 rounded bg-surface-container flex items-center justify-center border border-outline-variant"><span class="material-symbols-outlined text-primary text-[16px]">shield</span></div><span class="font-label-md text-label-md text-on-surface tracking-tight font-semibold">CloudSentinel Enterprise <span class="text-outline font-normal">v1.2</span></span></div><div class="flex items-center gap-space-xs px-space-md py-space-xs rounded bg-surface-container border border-outline-variant font-label-sm text-label-sm text-on-surface-variant"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span>production-aws-iac (main)</span></div><div class="hidden xl:flex items-center gap-space-xs px-space-md py-space-xs rounded bg-surface-container-low border border-outline-variant font-label-sm text-label-sm text-on-surface-variant hover:border-outline hover:text-on-surface cursor-pointer"><span class="material-symbols-outlined text-[14px] text-outline">folder_open</span><span>org-acme / production-aws-iac</span><span class="material-symbols-outlined text-[14px] text-outline">arrow_drop_down</span></div></div><div class="flex items-center gap-space-lg"><div class="hidden lg:flex items-center gap-space-lg border-r border-outline-variant pr-space-lg"><div class="flex items-center gap-space-sm font-label-sm text-label-sm"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span class="text-on-surface-variant">Cedar Rust Core:</span><span class="text-primary font-code-diff">AST Engine (0.12ms)</span></div><div class="flex items-center gap-space-sm font-label-sm text-label-sm"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span class="text-on-surface-variant">Ollama Strands:</span><span class="text-primary font-code-diff">gemma4:latest</span></div><div class="flex items-center gap-space-sm font-label-sm text-label-sm"><span class="w-2 h-2 rounded-full bg-secondary-container"></span><span class="text-on-surface-variant">Moto Sandbox:</span><span class="text-secondary font-code-diff">Zero Egress Active</span></div></div><div class="flex items-center gap-space-md"><div class="flex flex-col items-end"><span class="font-label-sm text-label-sm text-on-surface leading-tight font-medium">SEC-OPS</span><span class="font-hash-meta text-hash-meta text-outline leading-tight">Lead Architect</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div><div class="h-10 w-full px-gutter-desktop flex items-center justify-between bg-surface-container-lowest"><nav class="flex items-center h-full gap-space-sm" data-active-classes="text-primary border-b-2 border-primary bg-surface-container-low"><a class="flex items-center h-full px-space-lg font-headline-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors border-b-2 border-transparent gap-space-xs" data-path="pr-gatekeeper-and-live-swarm" href="#"><span class="font-medium">PR Gatekeeper & Live Swarm</span><span class="ml-space-xs px-1.5 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-error"></span>2 Blocked</span></a><a class="flex items-center h-full px-space-lg font-headline-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors border-b-2 border-transparent gap-space-xs" data-path="infrastructure-topology-and-explorer" href="#"><span class="font-medium">Infrastructure Topology & Explorer</span><span class="ml-space-xs px-1.5 py-0.5 rounded bg-surface-container border border-outline-variant font-label-sm text-label-sm text-outline">4 files</span></a><a class="flex items-center h-full px-space-lg font-headline-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors border-b-2 border-transparent gap-space-xs" data-path="cedar-policy-studio" href="#"><span class="font-medium">Cedar Policy Studio</span><span class="ml-space-xs px-1.5 py-0.5 rounded bg-surface-container border border-outline-variant font-label-sm text-label-sm text-on-surface-variant">Guardrails</span></a><a class="flex items-center h-full px-space-lg font-headline-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors border-b-2 border-transparent gap-space-xs" data-path="audit-ledger-and-sandboxes" href="#"><span class="font-medium">Audit Ledger & Sandboxes</span><span class="ml-space-xs px-1.5 py-0.5 rounded bg-surface-container border border-outline-variant font-label-sm text-label-sm text-outline">Offline Verif</span></a></nav><div class="flex items-center gap-space-md font-label-sm text-label-sm text-outline"><span class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[14px]">terminal</span>Cmd+K Palette</span><span class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[14px]">lock</span>Cedar v3.1 Strict</span></div></div></header><main class="w-full pt-24 bg-background min-h-screen"><div class="flex flex-col w-full">
+<!-- Interactive View State Bar -->
+<div class="w-full bg-surface-container-lowest px-margin-desktop py-space-sm flex flex-wrap items-center justify-between gap-space-md shadow-sm">
+<div class="flex items-center gap-space-lg">
+<div class="flex items-center gap-space-sm font-label-md text-label-md">
+<span class="text-on-surface font-semibold tracking-tight uppercase">Topology Graph & AST Engine</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high font-hash-meta text-hash-meta text-primary font-mono">AST: v2.48.0-rust</span>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span>Graph live-sync: Moto Sandbox (ephemeral-sandbox-994)</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md font-label-sm text-label-sm">
+<div class="flex items-center gap-space-xs px-2 py-1 rounded bg-surface-container text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px] text-tertiary">commit</span>
+<span class="font-code-diff">sha:e984f1c</span>
+</div>
+<div class="flex items-center gap-space-xs px-2 py-1 rounded bg-surface-container-high text-primary font-medium">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+<span>Deterministic AST Parse (0.18ms)</span>
+</div>
+</div>
+</div>
+<!-- Three-Column Work Area -->
+<div class="w-full flex flex-col xl:flex-row gap-0 bg-surface-container-lowest" style="min-height: calc(100vh - 12rem);">
+<!-- COLUMN 1: File Explorer -->
+<div class="w-full xl:w-72 flex-shrink-0 bg-surface-container-low flex flex-col shadow-sm">
+<!-- Section Header -->
+<div class="p-space-lg bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-outline text-[16px]">account_tree</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold tracking-tight">REPOSITORY FILES</span>
+</div>
+<span class="font-hash-meta text-hash-meta text-on-surface-variant">AWS-IAC</span>
+</div>
+<!-- Repo Summary Tag -->
+<div class="px-space-lg py-space-sm bg-surface-container-lowest flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">production-aws-iac</span>
+<span class="font-label-sm text-label-sm text-outline">main branch</span>
+</div>
+<!-- Tree Structure List -->
+<div class="flex-1 p-space-md flex flex-col gap-0.5 overflow-y-auto font-label-sm text-label-sm">
+<!-- infra/ Folder Header -->
+<div class="flex items-center gap-space-xs px-2 py-1.5 text-on-surface font-medium cursor-default">
+<span class="material-symbols-outlined text-[16px] text-outline">folder_open</span>
+<span>infra/</span>
+<span class="ml-auto font-hash-meta text-hash-meta text-outline">5 items</span>
+</div>
+<!-- File: s3.tf (ACTIVE / VIOLATION) -->
+<div class="group ml-3 flex items-center justify-between px-2.5 py-1.5 rounded cursor-pointer transition-all bg-surface-container-high text-on-surface shadow-inner" id="tree-s3">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-[14px] text-error">description</span>
+<span class="font-code-diff truncate font-medium">s3.tf</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+<span>KMS Missing</span>
+</span>
+</div>
+<!-- File: iam.tf (VIOLATION) -->
+<div class="group ml-3 flex items-center justify-between px-2.5 py-1.5 rounded cursor-pointer transition-all hover:bg-surface-container text-on-surface-variant hover:text-on-surface" id="tree-iam">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-[14px] text-tertiary">description</span>
+<span class="font-code-diff truncate">iam.tf</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-surface-variant text-tertiary font-label-sm text-label-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>Wildcard</span>
+</span>
+</div>
+<!-- File: vpc.tf -->
+<div class="group ml-3 flex items-center justify-between px-2.5 py-1.5 rounded cursor-pointer transition-all hover:bg-surface-container text-on-surface-variant hover:text-on-surface">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-[14px] text-primary">description</span>
+<span class="font-code-diff truncate">vpc.tf</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-primary font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">check</span>
+</span>
+</div>
+<!-- File: sam-template.yaml -->
+<div class="group ml-3 flex items-center justify-between px-2.5 py-1.5 rounded cursor-pointer transition-all hover:bg-surface-container text-on-surface-variant hover:text-on-surface">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-[14px] text-primary">data_object</span>
+<span class="font-code-diff truncate">sam-template.yaml</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-primary font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">check</span>
+</span>
+</div>
+<!-- File: eks-cluster.tf -->
+<div class="group ml-3 flex items-center justify-between px-2.5 py-1.5 rounded cursor-pointer transition-all hover:bg-surface-container text-on-surface-variant hover:text-on-surface">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-[14px] text-primary">description</span>
+<span class="font-code-diff truncate">eks-cluster.tf</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-primary font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">check</span>
+</span>
+</div>
+<!-- policies/ Folder Header -->
+<div class="mt-space-md flex items-center gap-space-xs px-2 py-1.5 text-on-surface font-medium cursor-default">
+<span class="material-symbols-outlined text-[16px] text-outline">lock_open</span>
+<span>policies/</span>
+<span class="ml-auto font-hash-meta text-hash-meta text-outline">2 rules</span>
+</div>
+<!-- File: zerotrust.cedar -->
+<div class="ml-3 flex items-center justify-between px-2.5 py-1.5 rounded cursor-pointer bg-surface-container-highest text-on-surface">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-[14px] text-secondary">policy</span>
+<span class="font-code-diff truncate text-secondary">zerotrust.cedar</span>
+</div>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-low text-primary font-label-sm text-label-sm">Active Core</span>
+</div>
+<!-- File: data-governance.cedar -->
+<div class="ml-3 flex items-center justify-between px-2.5 py-1.5 rounded cursor-pointer text-on-surface-variant hover:bg-surface-container">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-[14px] text-secondary">policy</span>
+<span class="font-code-diff truncate">data-governance.cedar</span>
+</div>
+<span class="font-hash-meta text-hash-meta text-outline">v3.1</span>
+</div>
+<!-- .github/workflows/ Folder Header -->
+<div class="mt-space-md flex items-center gap-space-xs px-2 py-1.5 text-on-surface font-medium cursor-default">
+<span class="material-symbols-outlined text-[16px] text-outline">alt_route</span>
+<span>.github/workflows/</span>
+</div>
+<div class="ml-3 flex items-center justify-between px-2.5 py-1.5 rounded cursor-pointer text-on-surface-variant hover:bg-surface-container">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-[14px] text-outline">manufacturing</span>
+<span class="font-code-diff truncate">cloudsentinel-gate.yml</span>
+</div>
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+</div>
+</div>
+<!-- Tree Bottom Meta -->
+<div class="p-space-md bg-surface-container-lowest flex flex-col gap-1">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-outline">Total Parsed AST Nodes</span>
+<span class="font-code-diff text-on-surface font-medium">84 nodes</span>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-outline">Strict Eval Mode</span>
+<span class="text-primary font-code-diff">Zero-Bypass</span>
+</div>
+</div>
+</div>
+<!-- COLUMN 2: Center Interactive Topology Canvas -->
+<div class="flex-1 flex flex-col min-w-0 bg-surface shadow-sm">
+<!-- Graph Canvas Control Bar -->
+<div class="px-gutter-desktop py-space-md bg-surface-container flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<span class="material-symbols-outlined text-primary text-[18px]">hub</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">RESOURCE DEPENDENCY & COMPLIANCE GRAPH</span>
+</div>
+<!-- Filter Pills & Zoom -->
+<div class="flex items-center gap-space-sm">
+<button class="px-2.5 py-1 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-medium transition-colors shadow-sm" id="filter-all">
+            All Resources (14)
+          </button>
+<button class="px-2.5 py-1 rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-medium transition-colors shadow-sm flex items-center gap-1" id="filter-violations">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+            Violations (2)
+          </button>
+<button class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-label-sm text-label-sm font-medium transition-colors shadow-sm flex items-center gap-1" id="filter-remediated">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+            Remediated (2)
+          </button>
+<div class="ml-space-md flex items-center gap-1 bg-surface-container-lowest p-0.5 rounded">
+<button class="w-6 h-6 flex items-center justify-center rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container">
+<span class="material-symbols-outlined text-[14px]">zoom_in</span>
+</button>
+<button class="w-6 h-6 flex items-center justify-center rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container">
+<span class="material-symbols-outlined text-[14px]">zoom_out</span>
+</button>
+<button class="w-6 h-6 flex items-center justify-center rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container">
+<span class="material-symbols-outlined text-[14px]">restart_alt</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Graph Canvas Visual Area -->
+<div class="relative flex-1 bg-background overflow-hidden p-space-xl flex flex-col justify-between" style="min-height: 520px;">
+<!-- Canvas Grid Pattern Overlay -->
+<div class="absolute inset-0 opacity-15 pointer-events-none" style="background-image: radial-gradient(circle at 1px 1px, #86948a 1px, transparent 0); background-size: 24px 24px;"></div>
+<!-- SVG Connection Lines Layer -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none z-0" xmlns="http://www.w3.org/2000/svg">
+<!-- Connection 1: Node D (VPC) -> Node E (EKS) -->
+<path d="M 230 110 L 450 110" fill="none" stroke="#353437" stroke-dasharray="3 3" stroke-width="2"></path>
+<text fill="#86948a" font-family="JetBrains Mono" font-size="9" text-anchor="middle" x="320" y="102">binds_vpc</text>
+<!-- Connection 2: Node E (EKS) -> Node B (IAM Worker Role) -->
+<path d="M 570 145 L 570 230" fill="none" stroke="#353437" stroke-width="2"></path>
+<text fill="#86948a" font-family="JetBrains Mono" font-size="9" x="585" y="190">assumes_instance_profile</text>
+<!-- Connection 3: Node B (IAM Role) -> Node A (S3 Bucket) [HAZARD LINK] -->
+<path d="M 470 280 L 260 280" fill="none" stroke="#ffb4ab" stroke-dasharray="6 4" stroke-width="2.5"></path>
+<!-- Animated pulse marker on hazard link -->
+<circle class="animate-ping" cx="365" cy="280" fill="#ffb4ab" r="4"></circle>
+<rect fill="#690005" height="18" rx="3" width="120" x="305" y="268"></rect>
+<text fill="#ffdad6" font-family="JetBrains Mono" font-size="9" font-weight="600" text-anchor="middle" x="365" y="281">hazard: s3:* (unrestricted)</text>
+<!-- Connection 4: Node C (KMS Key) -> Node A (S3 Bucket) [REMEDIATION PATCH LINK] -->
+<path d="M 370 420 C 260 420, 200 370, 200 330" fill="none" stroke="#4edea3" stroke-dasharray="4 2" stroke-width="2.5"></path>
+<rect fill="#00422b" height="18" rx="3" width="130" x="235" y="380"></rect>
+<text fill="#4edea3" font-family="JetBrains Mono" font-size="9" text-anchor="middle" x="300" y="393">patch: sse_algorithm (kms)</text>
+</svg>
+<!-- Dynamic Node Canvas Elements -->
+<div class="relative z-10 w-full h-full min-h-[460px]">
+<!-- Node D: aws_vpc.primary_vpc -->
+<div class="absolute left-8 top-8 w-60 bg-surface-container p-3 rounded-lg shadow-md cursor-pointer hover:bg-surface-container-high transition-transform transform hover:-translate-y-0.5">
+<div class="flex items-center justify-between pb-1.5">
+<span class="font-hash-meta text-hash-meta text-outline">AWS::EC2::VPC</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-lowest text-primary font-label-sm text-label-sm">Compliant</span>
+</div>
+<div class="font-code-diff text-on-surface font-semibold text-body-sm truncate">aws_vpc.primary_vpc</div>
+<div class="mt-1 flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>cidr_block</span>
+<span class="font-code-diff text-on-surface">10.0.0.0/16</span>
+</div>
+</div>
+<!-- Node E: aws_eks_cluster.core_prod -->
+<div class="absolute left-96 top-8 w-64 bg-surface-container p-3 rounded-lg shadow-md cursor-pointer hover:bg-surface-container-high transition-transform transform hover:-translate-y-0.5">
+<div class="flex items-center justify-between pb-1.5">
+<span class="font-hash-meta text-hash-meta text-outline">AWS::EKS::Cluster</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-lowest text-primary font-label-sm text-label-sm">Verified</span>
+</div>
+<div class="font-code-diff text-on-surface font-semibold text-body-sm truncate">aws_eks_cluster.core_prod</div>
+<div class="mt-1 flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>kubernetes_version</span>
+<span class="font-code-diff text-on-surface">1.29-aws</span>
+</div>
+</div>
+<!-- Node A: aws_s3_bucket.analytics_data (PRIMARY TARGET - VIOLATION) -->
+<div class="absolute left-6 top-56 w-72 bg-surface-container-lowest p-3.5 rounded-lg shadow-xl ring-2 ring-error cursor-pointer" id="node-s3">
+<div class="flex items-center justify-between pb-2">
+<span class="font-hash-meta text-hash-meta text-error font-medium">AWS::S3::Bucket</span>
+<span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">gpp_maybe</span>
+                CRITICAL
+              </span>
+</div>
+<div class="font-code-diff text-error font-bold text-headline-sm truncate">aws_s3_bucket.analytics_data</div>
+<div class="mt-2 p-2 rounded bg-surface-container text-on-surface flex flex-col gap-1 font-label-sm text-label-sm">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span>server_side_encryption:</span>
+<span class="text-error font-code-diff font-bold">NULL (Disabled)</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span>public_access_block:</span>
+<span class="text-primary font-code-diff">ENFORCED</span>
+</div>
+</div>
+<div class="mt-2 flex items-center justify-between text-outline font-hash-meta text-hash-meta">
+<span>Target File: infra/s3.tf:14</span>
+<span class="text-error flex items-center gap-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-error animate-ping"></span> Active Focus
+              </span>
+</div>
+</div>
+<!-- Node B: aws_iam_role.eks_analytics_worker (VIOLATION) -->
+<div class="absolute right-12 top-56 w-72 bg-surface-container-lowest p-3.5 rounded-lg shadow-xl ring-2 ring-tertiary cursor-pointer hover:bg-surface-container transition-all" id="node-iam">
+<div class="flex items-center justify-between pb-2">
+<span class="font-hash-meta text-hash-meta text-tertiary font-medium">AWS::IAM::Role</span>
+<span class="px-2 py-0.5 rounded bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm font-semibold uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">warning</span>
+                HIGH
+              </span>
+</div>
+<div class="font-code-diff text-tertiary font-bold text-headline-sm truncate">aws_iam_role.eks_analytics_worker</div>
+<div class="mt-2 p-2 rounded bg-surface-container text-on-surface flex flex-col gap-1 font-label-sm text-label-sm">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span>Action:</span>
+<span class="text-tertiary font-code-diff font-bold">"s3:*"</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span>Resource:</span>
+<span class="text-tertiary font-code-diff font-bold">"*" (Broad Wildcard)</span>
+</div>
+</div>
+<div class="mt-2 flex items-center justify-between text-outline font-hash-meta text-hash-meta">
+<span>Target File: infra/iam.tf:29</span>
+<span class="text-tertiary">Over-permissive</span>
+</div>
+</div>
+<!-- Node C: aws_kms_key.analytics_kms_key (REMEDIATION CANDIDATE) -->
+<div class="absolute left-72 bottom-4 w-72 bg-surface-container-lowest p-3.5 rounded-lg shadow-xl ring-2 ring-primary">
+<div class="flex items-center justify-between pb-1.5">
+<span class="font-hash-meta text-hash-meta text-primary font-medium">AWS::KMS::Key</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">auto_fix_high</span>
+                CANDIDATE
+              </span>
+</div>
+<div class="font-code-diff text-primary font-semibold text-body-sm truncate">aws_kms_key.analytics_kms_key</div>
+<div class="mt-2 p-2 rounded bg-surface-container text-on-surface flex flex-col gap-1 font-label-sm text-label-sm">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span>kms_spec:</span>
+<span class="text-on-surface font-code-diff">SYMMETRIC_DEFAULT</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span>enable_key_rotation:</span>
+<span class="text-primary font-code-diff font-semibold">true</span>
+</div>
+</div>
+<div class="mt-2 text-primary font-label-sm text-label-sm flex items-center justify-between">
+<span>Generated by Autonomous Swarm</span>
+<span class="font-code-diff text-outline">Pending Apply</span>
+</div>
+</div>
+</div>
+<!-- Canvas Legend & Status Strip -->
+<div class="relative z-10 w-full p-space-md rounded bg-surface-container-low flex flex-wrap items-center justify-between gap-space-md text-on-surface shadow-sm">
+<div class="flex items-center gap-space-lg flex-wrap">
+<span class="font-label-sm text-label-sm text-outline uppercase font-semibold">Graph Semantics:</span>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm">
+<span class="w-3 h-3 rounded bg-error"></span>
+<span>Policy Violation (DENY)</span>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm">
+<span class="w-3 h-3 rounded bg-tertiary"></span>
+<span>Least-Privilege Drift</span>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm">
+<span class="w-3 h-3 rounded bg-primary"></span>
+<span>Synthetic Remediation Patch</span>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm">
+<span class="w-3 h-3 rounded bg-surface-container-highest"></span>
+<span>Compliant Verified Node</span>
+</div>
+</div>
+<div class="font-code-diff text-label-sm text-on-surface-variant">
+            Graph Engine: Cedar DAG Analyzer v1.4
+          </div>
+</div>
+</div>
+</div>
+<!-- COLUMN 3: Right Inspector & AST Evaluator Panel -->
+<div class="w-full xl:w-96 flex-shrink-0 bg-surface-container-low flex flex-col shadow-sm">
+<!-- Panel Header -->
+<div class="p-space-lg bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">terminal</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold tracking-tight uppercase">RESOURCE AST & CEDAR TRACE</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-primary font-label-sm text-label-sm">PASS: moto_offline</span>
+</div>
+<!-- Selected Entity Meta Bar -->
+<div class="p-space-lg bg-surface-container-high flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-hash-meta text-hash-meta text-outline">SELECTED AST SCOPE</span>
+<span class="font-code-diff text-error font-medium text-label-sm">EXIT_CODE 2 (FAIL)</span>
+</div>
+<div class="font-code-diff text-headline-sm font-semibold text-on-surface truncate">
+          aws_s3_bucket.analytics_data
+        </div>
+<div class="flex items-center gap-space-sm font-label-sm text-label-sm text-on-surface-variant">
+<span>Type: aws_s3_bucket</span>
+<span>•</span>
+<span>infra/s3.tf lines 14-26</span>
+</div>
+</div>
+<!-- Content Scrollable Inspector Area -->
+<div class="flex-1 p-space-md flex flex-col gap-space-md overflow-y-auto font-label-sm text-label-sm">
+<!-- Matched Cedar Rule Header -->
+<div class="p-space-md rounded bg-surface-container flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary font-semibold uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">shield</span>
+              Matched Guardrail
+            </span>
+<span class="px-1.5 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-bold">FAIL-CLOSED</span>
+</div>
+<span class="font-code-diff font-semibold text-on-surface">cedar-s3-kms-enforce</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Forbids unencrypted S3 storage bucket resources. All buckets must specify KMS CMK ARN or server_side_encryption_configuration.
+          </p>
+</div>
+<!-- Evaluation Path Trace -->
+<div class="p-space-md rounded bg-surface-container-lowest flex flex-col gap-space-xs">
+<div class="flex items-center justify-between pb-1">
+<span class="font-hash-meta text-hash-meta text-outline uppercase font-semibold">AST Evaluation Trace Path</span>
+<span class="text-primary font-code-diff">0.09ms</span>
+</div>
+<div class="p-2 rounded bg-surface-container flex flex-col gap-1 font-code-diff text-label-sm">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="text-primary">01</span>
+<span>AST_ROOT</span>
+<span class="text-outline">→</span>
+<span>Resource["aws_s3_bucket.analytics_data"]</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="text-primary">02</span>
+<span>INSPECT</span>
+<span class="text-outline">→</span>
+<span>.server_side_encryption_configuration</span>
+</div>
+<div class="flex items-center gap-2 text-error font-medium">
+<span class="text-error">03</span>
+<span>RESOLVE</span>
+<span class="text-outline">→</span>
+<span>NULL_OBJECT_REFERENCE</span>
+</div>
+<div class="flex items-center gap-2 text-on-error-container bg-error-container p-1 rounded font-bold">
+<span>04</span>
+<span>OUTCOME</span>
+<span>→</span>
+<span>EVAL_DENY (Enforcement Blocked)</span>
+</div>
+</div>
+</div>
+<!-- Parsed CloudFormation / Terraform AST Block -->
+<div class="p-space-md rounded bg-surface-container flex flex-col gap-space-xs">
+<div class="flex items-center justify-between pb-1">
+<span class="font-hash-meta text-hash-meta text-outline uppercase font-semibold">Synthesized AST Object (JSON)</span>
+<span class="font-label-sm text-label-sm text-outline">read-only</span>
+</div>
+<pre class="p-2.5 rounded bg-surface-container-lowest text-on-surface font-code-diff text-[11px] leading-4 overflow-x-auto select-all">{
+  <span class="text-secondary">"type"</span>: <span class="text-primary">"aws_s3_bucket"</span>,
+  <span class="text-secondary">"name"</span>: <span class="text-primary">"analytics_data"</span>,
+  <span class="text-secondary">"values"</span>: {
+    <span class="text-secondary">"bucket"</span>: <span class="text-primary">"acme-enterprise-analytics-prod"</span>,
+    <span class="text-secondary">"acl"</span>: <span class="text-primary">"private"</span>,
+    <span class="text-error">"server_side_encryption_configuration"</span>: <span class="text-error">null</span>,
+    <span class="text-secondary">"tags"</span>: {
+      <span class="text-secondary">"Environment"</span>: <span class="text-primary">"production"</span>,
+      <span class="text-secondary">"DataClassification"</span>: <span class="text-error">"Restricted"</span>
+    }
+  }
+}</pre>
+</div>
+<!-- Remediated Preview Snippet -->
+<div class="p-space-md rounded bg-surface-container-high flex flex-col gap-space-xs">
+<div class="flex items-center justify-between pb-1">
+<span class="font-hash-meta text-hash-meta text-primary uppercase font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+              Proposed AST Patch (Autonomous Agent)
+            </span>
+<span class="px-1.5 py-0.2 rounded bg-primary text-on-primary font-label-sm text-label-sm font-semibold">CEDAR:PASS</span>
+</div>
+<div class="rounded bg-surface-container-lowest p-2 font-code-diff text-code-diff flex flex-col gap-0.5">
+<div class="text-outline line-through bg-error-container/30 px-1 py-0.5 rounded text-on-surface-variant flex items-center justify-between">
+<span>- // missing encryption blocks</span>
+<span class="text-error font-hash-meta">REMOVED</span>
+</div>
+<div class="text-primary bg-primary-container/20 px-1 py-0.5 rounded flex items-center justify-between font-medium">
+<span>+ resource "aws_kms_key" "analytics_kms_key" { ... }</span>
+<span class="text-primary font-hash-meta">NEW</span>
+</div>
+<div class="text-primary bg-primary-container/20 px-1 py-0.5 rounded flex items-center justify-between font-medium">
+<span>+ server_side_encryption_configuration { rule { apply_server_side_encryption_by_default { sse_algorithm = "aws:kms" } } }</span>
+<span class="text-primary font-hash-meta">NEW</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="p-space-lg bg-surface-container flex flex-col gap-space-sm">
+<button class="w-full h-10 px-space-lg rounded bg-primary hover:bg-primary-container text-on-primary font-headline-sm text-body-sm font-semibold flex items-center justify-center gap-space-sm shadow-md transition-transform active:scale-[0.99]" id="btn-simulate-patch">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+<span>Simulate Patch in Moto Sandbox</span>
+</button>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+            Zero egress isolation verified
+          </span>
+<span class="font-code-diff">Ready (1 patch candidate)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Notification Toast on Patch Simulation -->
+<div class="fixed bottom-12 right-12 z-50 transform translate-y-24 opacity-0 transition-all duration-200 bg-surface-container-highest text-on-surface p-4 rounded-lg shadow-xl max-w-md flex items-start gap-3" id="simulation-toast">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-on-primary text-[14px]">check</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="font-headline-sm text-headline-sm text-on-surface font-semibold">Moto Sandbox Verification Succeeded</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Synthetic AWS KMS key generated & linked to <span class="font-code-diff text-primary font-medium">aws_s3_bucket.analytics_data</span>. Zero real egress incurred. Cedar trace: 100% compliant.
+      </p>
+<div class="mt-1 flex items-center gap-2 font-hash-meta text-hash-meta text-outline">
+<span>AST-HASH: 8fbc10</span>
+<span>•</span>
+<span>Sandbox runtime: 12ms</span>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    // Interactive file selection toggle
+    const treeS3 = document.getElementById('tree-s3');
+    const treeIam = document.getElementById('tree-iam');
+    const nodeS3 = document.getElementById('node-s3');
+    const nodeIam = document.getElementById('node-iam');
+
+    if (treeIam && nodeIam) {
+      treeIam.addEventListener('click', function() {
+        treeIam.classList.add('bg-surface-container-high', 'text-on-surface');
+        treeS3.classList.remove('bg-surface-container-high');
+        treeS3.classList.add('bg-surface-container-low');
+      });
+    }
+
+    // Simulation trigger micro-interaction
+    const simulateBtn = document.getElementById('btn-simulate-patch');
+    const toast = document.getElementById('simulation-toast');
+
+    if (simulateBtn && toast) {
+      simulateBtn.addEventListener('click', function() {
+        simulateBtn.classList.add('opacity-75');
+        simulateBtn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">progress_activity</span><span>Executing Moto AST Sandbox...</span>';
+        
+        setTimeout(() => {
+          simulateBtn.classList.remove('opacity-75');
+          simulateBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">verified</span><span>Patch Verified in Moto Sandbox</span>';
+          simulateBtn.classList.replace('bg-primary', 'bg-surface-container-highest');
+          simulateBtn.classList.replace('text-on-primary', 'text-primary');
+
+          // Pop the toast notification
+          toast.classList.remove('translate-y-24', 'opacity-0');
+          toast.classList.add('translate-y-0', 'opacity-100');
+
+          setTimeout(() => {
+            toast.classList.remove('translate-y-0', 'opacity-100');
+            toast.classList.add('translate-y-24', 'opacity-0');
+          }, 4500);
+        }, 650);
+      });
+    }
+
+    // Filter Buttons Interaction
+    const filterAll = document.getElementById('filter-all');
+    const filterViolations = document.getElementById('filter-violations');
+    const filterRemediated = document.getElementById('filter-remediated');
+
+    const setActiveFilter = (btn) => {
+      [filterAll, filterViolations, filterRemediated].forEach(b => {
+        if (!b) return;
+        b.classList.remove('ring-2', 'ring-primary');
+      });
+      btn.classList.add('ring-2', 'ring-primary');
+    };
+
+    if (filterViolations) {
+      filterViolations.addEventListener('click', () => setActiveFilter(filterViolations));
+    }
+    if (filterAll) {
+      filterAll.addEventListener('click', () => setActiveFilter(filterAll));
+    }
+    if (filterRemediated) {
+      filterRemediated.addEventListener('click', () => setActiveFilter(filterRemediated));
+    }
+  })();
+</script></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant py-space-md"><div class="w-full px-gutter-desktop flex items-center justify-between font-label-sm text-label-sm text-outline"><span>CLOUDSENTINEL ENTERPRISE :: DETERMINISTIC REMEDIATION PLANE</span><div class="flex items-center gap-space-lg"><span>FAIL-CLOSED: ENABLED</span><span>MOTO SIMULATOR: ISOLATED</span><span>ZERO REAL AWS EGRESS</span></div></div></footer></body></html>

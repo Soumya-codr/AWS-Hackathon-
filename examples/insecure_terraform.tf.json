@@ -1,0 +1,30 @@
+{
+  "resource": {
+    "aws_s3_bucket": {
+      "insecure_data": {
+        "bucket": "insecure-tf-bucket-data",
+        "acl": "public-read"
+      }
+    },
+    "aws_iam_role": {
+      "insecure_role": {
+        "name": "insecure_admin_execution_role",
+        "assume_role_policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":\"*\",\"Resource\":\"*\",\"Effect\":\"Allow\"}]}"
+      }
+    },
+    "aws_security_group": {
+      "open_sg": {
+        "name": "open_sg_ingress",
+        "description": "Insecure wildcard ingress",
+        "ingress": [
+          {
+            "cidr_blocks": ["0.0.0.0/0"],
+            "from_port": 22,
+            "to_port": 22,
+            "protocol": "tcp"
+          }
+        ]
+      }
+    }
+  }
+}
